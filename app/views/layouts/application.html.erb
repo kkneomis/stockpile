@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stustorage</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+<body>
+  
+   <nav class="indigo lighten-3" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">StockPile</a>
+      <ul class="right hide-on-med-and-down">
+        <% if user_signed_in? %>
+          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+        <li><%= link_to "Login", new_user_session_path %></li> 
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <% end %>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+ 
+  <% if @page =='index' %>
+  <div class="parallax-container">
+      <div class="parallax"><img src="http://www.thepromove.com/wp-content/uploads/2015/12/2269_rsz_students_moving.jpg" width="100%"></div>
+    </div>
+  
+  <script>
+    $(document).ready(function(){
+      $('.parallax').parallax();
+    });   
+</script>
+  <% end %>
+  
+  <script>Materialize.toast('<%= notice %>', 8000, 'rounded')</script>
+<div class="container">
+<%= yield %>
+  </div>
+
+
+  
+</body>
+</html>

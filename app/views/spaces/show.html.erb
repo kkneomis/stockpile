@@ -1,0 +1,55 @@
+
+
+  <div class="row">
+        <div class="col s12 m6 offset-m3">
+          <div class="card">
+            <div class="card-image">
+              <img src="http://flintstonemarble.com/wp-content/uploads/2014/11/basement-toronto-contractors-12.jpg">
+              <span class="card-title"><%= @space.name %></span>
+            </div>
+            <div class="card-content">
+              <img src="http://4.bp.blogspot.com/-7j95ujkNsJA/UdkCe2a7g7I/AAAAAAAAARs/j67uCEDKIgI/s1600/4stars1.jpg" width="25%">
+              <p><%= @space.description %><br></p>
+              <h4>Price $<%= @space.price %></h4>
+            </div>
+            <div class="card-action">
+              <p><%= link_to "Store your stuff here!", new_space_rental_path(@space), class:"btn deep-purple" %></p>
+            </div>
+          </div>
+           <ul class="collection">
+    <li class="collection-item avatar">
+      <img src="http://www.petzoned.com/assets/default_avatar-468e8f42276a2fd234b034f28536570b.png" alt="" class="circle">
+      <span class="title">Great Experience</span>
+      <p>The homeowner was very friendly <br>
+         I got all my stuff back on time. Would recommend!
+      </p>
+      <a href="#!" class="secondary-content"><i class="fa fa-star"></i></a>
+    </li>
+    <li class="collection-item avatar">
+      <img src="http://www.petzoned.com/assets/default_avatar-468e8f42276a2fd234b034f28536570b.png" alt="" class="circle">
+      <span class="title">It was Ok</span>
+      <p>The homeowner wasn't there the first time <br>
+         It was a lot larger thank expected through
+      </p>
+      <a href="#!" class="secondary-content"><i class="fa fa-star"></i></a>
+    </li>
+    <li class="collection-item avatar">
+      <img src="http://www.petzoned.com/assets/default_avatar-468e8f42276a2fd234b034f28536570b.png" alt="" class="circle">
+      <span class="title">Twas Dope</span>
+      <p>This was easy and wonderful <br>
+         I saved a lot of bread too
+      </p>
+      <a href="#!" class="secondary-content"><i class="fa fa-star"></i></a>
+    </li>
+
+  </ul>
+         
+          <% link_to 'Edit', edit_space_path(@space) %> 
+<% link_to 'Back', spaces_path %>
+        </div>
+      </div>
+            
+
+
+
+

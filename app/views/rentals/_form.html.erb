@@ -1,0 +1,41 @@
+<%= form_for([@space, @rental]) do |f| %>
+  <% if @rental.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rental.errors.count, "error") %> prohibited this rental from being saved:</h2>
+
+      <ul>
+      <% @rental.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.hidden_field :name %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :price %>
+  </div>
+
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4 class="indigo-text text-lighten-3">Select Rental Time Range</h4>
+       <input type="date" class="datepicker" placeholder="Start Date">
+       <input type="date" class="datepicker" placeholder="End Date">
+      <br>
+      <%= f.submit "Store Your Stuff!",class:"deep-purple btn-large" %>
+    </div>
+  </div>
+
+<% end %>
+
+<script> $('#modal1').openModal();
+ $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+        
+</script>

@@ -1,0 +1,8 @@
+
+<h1>Listing Rentals</h1>
+
+<% @rentals.each do |rental| %>
+    <div class="collection">
+        <a href="#!" class="collection-item"><%= User.find(rental.renter_id).email %> rented <%= rental.space.name %> for <%= rental.space.price %> dollars </a>
+      </div>
+<% end %>

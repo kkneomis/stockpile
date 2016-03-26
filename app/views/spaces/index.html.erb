@@ -1,0 +1,68 @@
+<% @page = 'index' %>
+<h2 class="indigo-text text-lighten-3">Storage Spaces in Washington D.C.</h2>
+
+  <div class="row">
+    <form >
+      <div class="row">
+        <div class="col m4">
+          <div class="input-field col s12">
+            <input id="text" type="text" class="validate" placeholder="Search by location">
+          </div>
+        </div>
+        <div class="col m4">
+       <div class="input-field col s12">
+          <select multiple>
+            <option value="" disabled selected>Select size</option>
+            <option value="1">10 x 10</option>
+            <option value="2">15 x 15</option>
+            <option value="3">20 x 20</option>
+          </select>
+          <label>Search by size</label>
+        </div>
+        </div>
+        <div class="col m4">
+          <div class="input-field col s12">
+            <input id="text" type="date" class="datepicker" placeholder="Search by Date">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+        
+<div class ="row">
+<% @spaces.each do |space| %>
+  <div class="col m4">
+  <div class="card">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="http://flintstonemarble.com/wp-content/uploads/2014/11/basement-toronto-contractors-12.jpg">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4"><%= space.name %><i class="fa fa-ellipsis-v right"></i></span>
+        <p><%= link_to "View!", space, class:"btn deep-purple" %></p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4"><%= space.name %><i class="fa fa-times right"></i></span>
+        <p>Address: <%= space.address %><br>
+        Description: <%= space.description %><br>
+          <% if user_signed_in? %>
+            <% link_to 'Edit', edit_space_path(space) %>
+            <% link_to 'Destroy', space, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </p>
+      </div>
+  </div>
+ </div>
+<% end %>
+  </div>
+<% link_to 'New Space', new_space_path %>
+
+<script>
+   $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+     
+
+    $('select').material_select();
+        
+</script>
